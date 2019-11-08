@@ -1052,7 +1052,7 @@ class Configuration {
    * @return {boolean}
    */
   getDontCloseBatches() {
-    return TypeUtils.getOrDefault(this._dontCloseBatches, !!(GeneralUtils.getEnvValue('DONT_CLOSE_BATCHES')) || DEFAULT_VALUES.dontCloseBatches);
+    return TypeUtils.getOrDefault(this._dontCloseBatches, GeneralUtils.getEnvValue('DONT_CLOSE_BATCHES', true) || DEFAULT_VALUES.dontCloseBatches);
   }
 
   /**
