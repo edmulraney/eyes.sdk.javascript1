@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [unversioned]
+
+
+### Features
+
+* **eyes-common:** Add dontCloseBatches property to Configuration. [Trello_1238](https://trello.com/c/5Hy0nGkN)
+
+
+
+
 ## [3.11.2](https://github.com/applitools/eyes.sdk.javascript1/compare/@applitools/eyes-common@3.11.1...@applitools/eyes-common@3.11.2) (2019-10-07)
 
 
