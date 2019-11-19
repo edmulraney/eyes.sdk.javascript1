@@ -1,7 +1,8 @@
 'use strict';
 
-const axios = require('axios');
+const Axios = require('axios');
 const zlib = require('zlib');
+const tunnel = require('tunnel')
 
 const { GeneralUtils, TypeUtils, ArgumentGuard, DateTimeUtils } = require('@applitools/eyes-common');
 
@@ -12,6 +13,19 @@ const { MatchResult } = require('../match/MatchResult');
 
 const { RunningRender } = require('../renderer/RunningRender');
 const { RenderStatusResults } = require('../renderer/RenderStatusResults');
+
+const agent = tunnel.httpsOverHttp({
+  proxy: {
+      host: 'proxy.domain.net',
+      port: 8080,
+      proxyAuth: 'username:password',
+    },
+});
+
+const axios = Axios.create({
+  httpsAgent: agent,
+  proxy: false, // this is important: we must not use the corporate proxy if its a HTTP only proxy, instead we use our tunnel.
+});
 
 // Constants
 const EYES_API_PATH = '/api/sessions';
